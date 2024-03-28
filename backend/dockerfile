@@ -1,0 +1,26 @@
+# Use official Python image as base image
+FROM python:3.9-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set working directory
+WORKDIR /app
+
+# Copy and install dependencies
+COPY backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application
+COPY backend .
+
+# Install MySQL client
+RUN apt-get update && apt-get install -y default-mysql-client
+
+# Expose port 5000 for Flask app and 3306 for MySQL
+EXPOSE 5000
+EXPOSE 3305
+
+# Command to start MySQL server and Flask application
+CMD ["bash", "-c", "service mysql start && python app.py"]

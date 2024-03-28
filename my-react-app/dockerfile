@@ -1,0 +1,14 @@
+# Use a lightweight Node.js image as the base image
+FROM node:14-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy the entire React app into the container
+COPY my-react-app .
+
+# Expose port 3000
+EXPOSE 3000
+
+# Command to start the React development server
+CMD ["npm", "start"]

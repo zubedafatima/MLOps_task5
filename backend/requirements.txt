@@ -1,5 +1,5 @@
-Flask==2.0.2
-Flask-MySQLdb==0.2.0
-mysqlclient==2.2.4
-Flask-SQLAlchemy==3.0.1
-Flask-CORS
+Flask
+Flask-Cors
+Flask-SQLAlchemy
+MarkupSafe
+Jinja2
